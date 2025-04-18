@@ -9,6 +9,7 @@ import { useScroll } from 'framer-motion'
 
 import * as React from 'react'
 
+import { LanguageSwitcher } from '../language-switcher/language-switcher' // Added import
 import { Logo } from './logo'
 import Navigation from './navigation'
 
@@ -57,7 +58,10 @@ export const Header = (props: HeaderProps) => {
               }
             }}
           />
-          <Navigation />
+          <Flex align="center"> {/* Added Flex wrapper for Navigation and Switcher */}
+            <Navigation />
+            <LanguageSwitcher /> {/* Added LanguageSwitcher */}
+          </Flex>
         </Flex>
       </Container>
     </Box>

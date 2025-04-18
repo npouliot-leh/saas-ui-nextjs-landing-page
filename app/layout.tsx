@@ -2,11 +2,19 @@ import { ColorModeScript, theme } from '@chakra-ui/react'
 
 import { Provider } from './provider'
 
-export default function Layout(props: { children: React.ReactNode }) {
+// Reverted: Root layout only needs children
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   const colorMode = theme.config.initialColorMode
 
+  // Set a default lang here, or move html/body entirely to the locale layout
+  // For simplicity, let's keep html/body here for now and set lang in locale layout later if needed
+  // Or, we can just remove lang from here entirely for now. Let's remove it.
   return (
-    <html lang="en" data-theme={colorMode} style={{ colorScheme: colorMode }}>
+    <html data-theme={colorMode} style={{ colorScheme: colorMode }}>
       <head>
         <link
           rel="apple-touch-icon"
@@ -29,7 +37,7 @@ export default function Layout(props: { children: React.ReactNode }) {
       </head>
       <body className={`chakra-ui-${colorMode}`}>
         <ColorModeScript initialColorMode={colorMode} />
-        <Provider>{props.children}</Provider>
+        <Provider>{children}</Provider>
       </body>
     </html>
   )

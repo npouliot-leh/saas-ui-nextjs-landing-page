@@ -23,7 +23,8 @@ const providers = {
   },
 }
 
-const Login: NextPage = () => {
+// Note: Page props might need locale later
+const Signup: NextPage = () => { // Renamed component from Login to Signup for clarity
   return (
     <Section height="100vh" innerWidth="container.xl">
       <BackgroundGradient
@@ -75,7 +76,7 @@ const Login: NextPage = () => {
                 view="signup"
                 title={siteConfig.signup.title}
                 providers={providers}
-                loginLink={<Link href="/login">Log in</Link>}
+                loginLink={<Link href="/login">Log in</Link>} // Link might need locale prefixing later
               >
                 <Text color="muted" fontSize="sm">
                   By signing up you agree to our{' '}
@@ -96,4 +97,4 @@ const Login: NextPage = () => {
   )
 }
 
-export default Login
+export default Signup // Updated export

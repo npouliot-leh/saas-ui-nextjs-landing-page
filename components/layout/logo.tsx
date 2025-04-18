@@ -11,19 +11,15 @@ export interface LogoProps {
 }
 
 export const Logo = ({ href = '/', onClick }: LogoProps) => {
-  let logo
-  if (siteConfig.logo) {
-    logo = <Box as={siteConfig.logo} height="32px" mt="-4px" />
-  } else {
-    logo = (
-      <Heading as="h1" size="md">
-        {siteConfig.seo?.title}
-      </Heading>
-    )
-  }
+  // Placeholder logo text
+  const logo = (
+    <Heading as="h1" size="md">
+      Sublogik
+    </Heading>
+  )
 
   return (
-    <Flex h="8" flexShrink="0" alignItems="flex-start">
+    <Flex h="8" flexShrink="0" alignItems="center"> {/* Adjusted alignment */}
       <Link
         href={href}
         display="flex"

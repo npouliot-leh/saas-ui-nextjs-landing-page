@@ -6,61 +6,51 @@ import { FiCheck } from 'react-icons/fi'
 import { Logo } from './logo'
 
 const siteConfig = {
-  logo: Logo,
+  logo: Logo, // Note: Logo component itself is now just text placeholder
   seo: {
-    title: 'Saas UI',
-    description: 'The React component library for startups',
+    title: 'Sublogik',
+    description: 'Business Consulting and Software Solutions', // Updated description
   } as NextSeoProps,
-  termsUrl: '#',
-  privacyUrl: '#',
+  termsUrl: '#', // TODO: Update later
+  privacyUrl: '#', // TODO: Update later
   header: {
     links: [
+      // Updated links for Sublogik
       {
-        id: 'features',
-        label: 'Features',
+        id: 'services', // Assuming section IDs will match
+        label: 'Services',
       },
       {
-        id: 'pricing',
-        label: 'Pricing',
+        id: 'use-cases',
+        label: 'Use Cases',
       },
       {
-        id: 'faq',
-        label: 'FAQ',
+        id: 'blog',
+        label: 'Blog', // Or 'News'
       },
       {
-        label: 'Login',
-        href: '/login',
+        id: 'contact',
+        label: 'Contact',
       },
-      {
-        label: 'Sign Up',
-        href: '/signup',
-        variant: 'primary',
-      },
+      // Removed Login/Signup for now, can be added back if needed
     ],
   },
   footer: {
     copyright: (
       <>
-        Built by{' '}
-        <Link href="https://twitter.com/Pagebakers">Eelco Wiersma</Link>
+        © {new Date().getFullYear()} Sublogik Inc. All rights reserved.
       </>
     ),
     links: [
-      {
-        href: 'mailto:hello@saas-ui.dev',
-        label: 'Contact',
-      },
-      {
-        href: 'https://twitter.com/saas_js',
-        label: <FaTwitter size="14" />,
-      },
-      {
-        href: 'https://github.com/saas-js/saas-ui',
-        label: <FaGithub size="14" />,
-      },
+      // TODO: Add actual social links
+      { href: '#', label: 'LinkedIn' }, // Placeholder
+      { href: '#', label: 'Twitter' }, // Placeholder
+      { href: '#', label: 'Facebook' }, // Placeholder
+      // Keep contact or add specific contact link if desired
+      { href: 'mailto:info@sublogik.ca', label: 'Contact' }, // Example contact
     ],
   },
-  signup: {
+  signup: { // Note: This signup section might be removed later
     title: 'Start building with Saas UI',
     features: [
       {

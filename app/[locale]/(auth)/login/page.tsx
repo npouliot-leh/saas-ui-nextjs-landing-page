@@ -19,6 +19,7 @@ const providers = {
   },
 }
 
+// Note: Page props might need locale later
 const Login: NextPage = () => {
   return (
     <Section height="calc(100vh - 200px)" innerWidth="container.sm">
@@ -29,7 +30,7 @@ const Login: NextPage = () => {
           <Auth
             view="login"
             providers={providers}
-            signupLink={<Link href="/signup">Sign up</Link>}
+            signupLink={<Link href="/signup">Sign up</Link>} // Link might need locale prefixing later
           />
         </PageTransition>
       </Center>

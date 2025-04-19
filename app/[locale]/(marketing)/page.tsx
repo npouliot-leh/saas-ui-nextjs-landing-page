@@ -15,10 +15,13 @@ import {
   VStack,
   Wrap,
   useClipboard,
+  Button, // Import Button for styling Links
 } from '@chakra-ui/react'
-import { Br, Link } from '@saas-ui/react'
+import { Br } from '@saas-ui/react' // Remove Link import from saas-ui
 import type { Metadata, NextPage } from 'next'
 import Image from 'next/image'
+import { useTranslations } from 'next-intl'; // Import useTranslations
+// Removed setRequestLocale import as it's handled in layout
 import {
   FiArrowRight,
   FiBox,
@@ -39,9 +42,10 @@ import {
 } from 'react-icons/fi'
 
 import * as React from 'react'
+import { Link } from '../../../src/i18n/navigation'; // Use relative path
 
 // Removed unused imports: Faq, Features, Highlights, Pricing, Testimonials, faq, pricing, testimonials
-import { ButtonLink } from '#components/button-link/button-link'
+// Removed ButtonLink import
 import { BackgroundGradient } from '#components/gradients/background-gradient'
 import { Hero } from '#components/hero'
 import { ChakraLogo, NextjsLogo } from '#components/logos'
@@ -53,36 +57,11 @@ import { BlogSection } from '#components/sections/blog-section'
 import { ContactSection } from '#components/sections/contact-section'
 import { Em } from '#components/typography'
 
-
-// Note: Metadata might need adjustments for i18n later
-export const meta: Metadata = {
-  title: 'Saas UI Landingspage',
-  description: 'Free SaaS landingspage starter kit',
-}
-
-// Note: Page props might need locale later for fetching translations
-const Home: NextPage = () => {
-  return (
-    <Box>
-      <HeroSection />
-
-      {/* Add new placeholder sections */}
-      <ServicesSection />
-      <UseCasesSection />
-      <BlogSection />
-      <ContactSection />
-
-      {/* Removed unused sections */}
-      {/* <HighlightsSection /> */}
-      {/* <FeaturesSection /> */}
-      {/* <TestimonialsSection /> */}
-      {/* <PricingSection /> */}
-      {/* <FaqSection /> */}
-    </Box>
-  )
-}
-
+// Define HeroSection before Home uses it
 const HeroSection: React.FC = () => {
+  // Get translations for the Hero section
+  const t = useTranslations('HeroSection');
+
   return (
     <Box position="relative" overflow="hidden">
       <BackgroundGradient height="100%" zIndex="-1" />
@@ -94,12 +73,14 @@ const HeroSection: React.FC = () => {
             px="0"
             title={
               <FallInPlace>
+                {/* Using original hardcoded text for now, can be translated later if needed */}
                 Build beautiful
                 <Br /> software faster
               </FallInPlace>
             }
             description={
               <FallInPlace delay={0.4} fontWeight="medium">
+                 {/* Using original hardcoded text for now, can be translated later if needed */}
                 Saas UI is a <Em>React component library</Em>
                 <Br /> that doesn't get in your way and helps you <Br />{' '}
                 build intuitive SaaS products with speed.
@@ -111,14 +92,17 @@ const HeroSection: React.FC = () => {
                 <NextjsLogo height="28px" /> <ChakraLogo height="20px" />
               </HStack>
 
+              {/* Replace ButtonLink with Link styled as Button */}
               <ButtonGroup spacing={4} alignItems="center">
-                <ButtonLink colorScheme="primary" size="lg" href="/signup">
-                  Sign Up
-                </ButtonLink>
-                <ButtonLink
-                  size="lg"
-                  href="https://demo.saas-ui.dev"
-                  variant="outline"
+                 <Button as={Link} colorScheme="primary" size="lg" href="/signup">
+                   {/* Using original hardcoded text */}
+                   Sign Up
+                 </Button>
+                 <Button
+                   as={Link}
+                   size="lg"
+                   href="https://demo.saas-ui.dev" // Assuming external link doesn't need locale
+                   variant="outline"
                   rightIcon={
                     <Icon
                       as={FiArrowRight}
@@ -132,8 +116,9 @@ const HeroSection: React.FC = () => {
                     />
                   }
                 >
+                   {/* Using original hardcoded text */}
                   View demo
-                </ButtonLink>
+                 </Button>
               </ButtonGroup>
             </FallInPlace>
           </Hero>
@@ -163,6 +148,41 @@ const HeroSection: React.FC = () => {
       </Container>
 
       {/* Removed Features component usage from HeroSection */}
+    </Box>
+  )
+}
+
+
+// Note: Metadata might need adjustments for i18n later
+export const meta: Metadata = {
+  title: 'Sublogik', // Use generic title, can be localized in metadata later
+  description: 'Business Consulting and Software Solutions', // Use generic description
+}
+
+// Update component signature to accept params
+const Home: NextPage<{ params: { locale: string } }> = ({ params: { locale } }) => {
+  // setRequestLocale is handled in the layout
+
+  // Translations for the main page (if any needed directly here)
+  // const t = useTranslations('MarketingPage');
+
+  return (
+    <Box>
+      {/* Pass locale down if HeroSection needs it directly, or let it use its own hook */}
+      <HeroSection />
+
+      {/* Add new placeholder sections */}
+      <ServicesSection />
+      <UseCasesSection />
+      <BlogSection />
+      <ContactSection />
+
+      {/* Removed unused sections */}
+      {/* <HighlightsSection /> */}
+      {/* <FeaturesSection /> */}
+      {/* <TestimonialsSection /> */}
+      {/* <PricingSection /> */}
+      {/* <FaqSection /> */}
     </Box>
   )
 }

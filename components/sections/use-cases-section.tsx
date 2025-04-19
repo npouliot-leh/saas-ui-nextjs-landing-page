@@ -1,15 +1,18 @@
-import { Box, Container, Heading, Text } from '@chakra-ui/react'
-import { Section } from '#components/section'
+import { Box, Container, Heading, Text } from '@chakra-ui/react';
+import { Section } from '#components/section';
+import { useTranslations } from 'next-intl'; // Re-add import
 
 export const UseCasesSection = () => {
+  const t = useTranslations('UseCasesSection'); // Re-add hook
+
   return (
     <Section id="use-cases"> {/* Use the ID matching the nav link */}
       <Container maxW="container.xl">
         <Heading as="h2" size="xl" mb="8" textAlign="center">
-          Use Cases
+          {t('title')} {/* Use translation */}
         </Heading>
         <Text textAlign="center">
-          Placeholder text for Use Cases section. Concrete examples and demonstrations will be added here.
+          {t('placeholder')} {/* Use translation */}
         </Text>
         {/* Add more detailed structure later (e.g., examples with images/videos) */}
       </Container>

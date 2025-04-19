@@ -1,14 +1,37 @@
-import * as React from 'react'
+import * as React from 'react';
+import { NextIntlClientProvider, hasLocale } from 'next-intl'; // Import hasLocale
+import { notFound } from 'next/navigation';
+import { getMessages, setRequestLocale } from 'next-intl/server'; // Import getMessages
+import { routing } from '../../src/i18n/routing'; // Corrected import path
 
-// This layout receives the locale param and wraps the actual page layouts/content
-export default function LocaleLayout({
+// Add generateStaticParams function
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
+export default async function LocaleLayout({
   children,
-  params,
+  params: { locale }, // Destructure locale directly
 }: {
-  children: React.ReactNode
-  params: { locale: string }
+  children: React.ReactNode;
+  params: { locale: string };
 }) {
-  // We can use params.locale here later for loading translations, setting lang attribute, etc.
-  // For now, just render the children passed from the specific route group layouts (marketing, auth)
-  return <>{children}</>
+  // Validate locale using hasLocale
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
+
+  // Enable static rendering
+  setRequestLocale(locale);
+
+  // Load messages for the specific locale
+  const messages = await getMessages();
+
+  // Note: The actual <html>, <body> are in the parent app/layout.tsx
+  // We also cannot set lang={locale} here as the <html> tag is not rendered here.
+  return (
+    <NextIntlClientProvider locale={locale} messages={messages}>
+      {children}
+    </NextIntlClientProvider>
+  );
 }

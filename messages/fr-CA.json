@@ -1,0 +1,51 @@
+{
+  "Navigation": {
+    "services": "Services",
+    "use-cases": "Cas d'utilisation",
+    "blog": "Blogue",
+    "contact": "Contact"
+  },
+  "HeroSection": {
+    "titleLine1": "Créez de superbes",
+    "titleLine2": "logiciels plus rapidement",
+    "descriptionLine1": "Saas UI est une bibliothèque de composants React",
+    "descriptionLine2": "qui ne vous gêne pas et vous aide à créer",
+    "descriptionLine3": "des produits SaaS intuitifs avec rapidité.",
+    "signUp": "S'inscrire",
+    "viewDemo": "Voir la démo"
+  },
+  "ServicesSection": {
+    "title": "Nos Services",
+    "placeholder": "Texte d'espace réservé pour la section Services. Les détails sur le conseil aux entreprises, les solutions logicielles, les intégrations d'API, etc., iront ici."
+  },
+  "UseCasesSection": {
+    "title": "Cas d'utilisation",
+    "placeholder": "Texte d'espace réservé pour la section Cas d'utilisation. Des exemples concrets et des démonstrations seront ajoutés ici."
+  },
+  "BlogSection": {
+    "title": "Blogue / Nouvelles",
+    "placeholder": "Texte d'espace réservé pour la section Blogue/Nouvelles. Les articles récents seront listés ici."
+  },
+  "ContactSection": {
+    "title": "Contactez-nous",
+    "nameLabel": "Nom",
+    "namePlaceholder": "Votre nom",
+    "emailLabel": "Courriel",
+    "emailPlaceholder": "votre.courriel@exemple.com",
+    "messageLabel": "Message",
+    "messagePlaceholder": "Votre message...",
+    "sendButton": "Envoyer le message"
+  },
+  "Footer": {
+    "copyright": "© {year} Sublogik Inc. Tous droits réservés.",
+    "contact": "Contact",
+    "linkedIn": "LinkedIn",
+    "twitter": "Twitter",
+    "facebook": "Facebook"
+  },
+  "LanguageSwitcher": {
+    "label": "Langue",
+    "en": "English",
+    "fr-CA": "Français"
+  }
+}

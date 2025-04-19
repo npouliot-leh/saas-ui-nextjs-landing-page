@@ -11,6 +11,7 @@ const siteConfig = {
     title: 'Sublogik',
     description: 'Business Consulting and Software Solutions', // Updated description
   } as NextSeoProps,
+  url: 'http://localhost:3000', // Base URL for the site
   termsUrl: '#', // TODO: Update later
   privacyUrl: '#', // TODO: Update later
   header: {
@@ -42,12 +43,13 @@ const siteConfig = {
       </>
     ),
     links: [
-      // TODO: Add actual social links
-      { href: '#', label: 'LinkedIn' }, // Placeholder
-      { href: '#', label: 'Twitter' }, // Placeholder
-      { href: '#', label: 'Facebook' }, // Placeholder
+      // Updated social links
+      { key: 'linkedIn', href: '#', label: 'LinkedIn' }, // No URL provided yet
+      { key: 'x', href: 'https://x.com/sublogik_CA', label: 'X' }, // Updated Twitter to X
+      { key: 'facebook', href: 'https://facebook.com/sublogikconsultants', label: 'Facebook' }, // Updated Facebook URL
+      { key: 'instagram', href: 'https://instagram.com/sublogik', label: 'Instagram' }, // Added Instagram
       // Keep contact or add specific contact link if desired
-      { href: 'mailto:info@sublogik.ca', label: 'Contact' }, // Example contact
+      { key: 'contact', href: 'mailto:info@sublogik.ca', label: 'Contact' },
     ],
   },
   signup: { // Note: This signup section might be removed later

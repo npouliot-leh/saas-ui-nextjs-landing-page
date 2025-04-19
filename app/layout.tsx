@@ -1,21 +1,25 @@
-import { ColorModeScript, theme } from '@chakra-ui/react'
+import * as React from 'react';
+import { ColorModeScript, theme } from '@chakra-ui/react';
+import { Provider } from './provider'; // Ensure this path is correct
 
-import { Provider } from './provider'
-
-// Reverted: Root layout only needs children
+// Root layout MUST contain <html> and <body> tags
 export default function RootLayout({
   children,
+  params, // Add params to the signature
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
+  params: { locale: string }; // Define the type for params
 }) {
-  const colorMode = theme.config.initialColorMode
+  const colorMode = theme.config.initialColorMode;
 
-  // Set a default lang here, or move html/body entirely to the locale layout
-  // For simplicity, let's keep html/body here for now and set lang in locale layout later if needed
-  // Or, we can just remove lang from here entirely for now. Let's remove it.
+  // Note: lang attribute is set in app/[locale]/layout.tsx via html tag there
+  // This layout provides the essential document structure and UI providers
+  // We can now use params.locale if needed, but it's primarily for context passing
   return (
-    <html data-theme={colorMode} style={{ colorScheme: colorMode }}>
+    // The lang attribute should be set here, using the passed locale
+    <html lang={params.locale} data-theme={colorMode} style={{ colorScheme: colorMode }}>
       <head>
+        {/* Favicon links */}
         <link
           rel="apple-touch-icon"
           sizes="76x76"
@@ -37,8 +41,9 @@ export default function RootLayout({
       </head>
       <body className={`chakra-ui-${colorMode}`}>
         <ColorModeScript initialColorMode={colorMode} />
+        {/* Main UI Provider wraps the children passed down */}
         <Provider>{children}</Provider>
       </body>
     </html>
-  )
+  );
 }

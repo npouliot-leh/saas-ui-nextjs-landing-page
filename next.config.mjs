@@ -1,7 +1,11 @@
+import createNextIntlPlugin from 'next-intl/plugin';
+// Remove Velite import for now
+// import { withVelite } from 'velite';
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  // Removed i18n block as it's for Pages Router and might conflict with App Router structure
+  // REMOVING i18n block again based on next-intl warning for App Router
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
@@ -25,4 +29,8 @@ const nextConfig = {
   },
 }
 
-export default nextConfig
+// Explicitly provide the path to the request config file
+const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
+
+// Export only with next-intl wrapper for now
+export default withNextIntl(nextConfig);

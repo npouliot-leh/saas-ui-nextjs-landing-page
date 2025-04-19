@@ -1,0 +1,51 @@
+{
+  "Navigation": {
+    "services": "Services",
+    "use-cases": "Use Cases",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+  "HeroSection": {
+    "titleLine1": "Build beautiful",
+    "titleLine2": "software faster",
+    "descriptionLine1": "Saas UI is a React component library",
+    "descriptionLine2": "that doesn't get in your way and helps you",
+    "descriptionLine3": "build intuitive SaaS products with speed.",
+    "signUp": "Sign Up",
+    "viewDemo": "View demo"
+  },
+  "ServicesSection": {
+    "title": "Our Services",
+    "placeholder": "Placeholder text for Services section. Details about business consulting, software solutions, API integrations, etc., will go here."
+  },
+  "UseCasesSection": {
+    "title": "Use Cases",
+    "placeholder": "Placeholder text for Use Cases section. Concrete examples and demonstrations will be added here."
+  },
+  "BlogSection": {
+    "title": "Blog / News",
+    "placeholder": "Placeholder text for Blog/News section. Recent articles will be listed here."
+  },
+  "ContactSection": {
+    "title": "Contact Us",
+    "nameLabel": "Name",
+    "namePlaceholder": "Your Name",
+    "emailLabel": "Email",
+    "emailPlaceholder": "your.email@example.com",
+    "messageLabel": "Message",
+    "messagePlaceholder": "Your message...",
+    "sendButton": "Send Message"
+  },
+  "Footer": {
+    "copyright": "© {year} Sublogik Inc. All rights reserved.",
+    "contact": "Contact",
+    "linkedIn": "LinkedIn",
+    "twitter": "Twitter",
+    "facebook": "Facebook"
+  },
+  "LanguageSwitcher": {
+    "label": "Language",
+    "en": "English",
+    "fr-CA": "Français"
+  }
+}

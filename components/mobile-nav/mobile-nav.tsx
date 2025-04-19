@@ -116,14 +116,17 @@ export function MobileNavContent(props: MobileNavContentProps) {
               </Flex>
               <Stack alignItems="stretch" spacing="0">
                 {siteConfig.header.links.map(
-                  ({ href, id, label, ...props }, i) => {
+                  // Destructure only id and label, construct href
+                  ({ id, label }, i) => {
+                    const href = `/#${id}`; // Construct href from id
                     return (
                       <NavLink
-                        href={href || `/#${id}`}
+                        href={href} // Use constructed href
                         key={i}
-                        {...(props as any)}
+                        label={label} // Pass label prop
+                        // Removed {...(props as any)} as props is no longer destructured
                       >
-                        {label}
+                        {label} {/* Keep label as children as well */}
                       </NavLink>
                     )
                   },

@@ -1,3 +1,5 @@
+'use client' // Add this directive
+
 import { Box, Center, Stack, Text } from '@chakra-ui/react'
 import { Auth } from '@saas-ui/auth'
 import { Link } from '@saas-ui/react'

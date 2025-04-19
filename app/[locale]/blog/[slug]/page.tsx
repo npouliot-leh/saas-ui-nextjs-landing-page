@@ -47,7 +47,7 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
       // description: post.description,
       url: `${siteConfig.url}/${params.locale}/blog/${post.slug}`, // Construct the full URL
       type: 'article',
-      publishedTime: post.date.toISOString(), // Use the post date as ISO string
+      publishedTime: new Date(post.date).toISOString(), // Ensure it's a Date object before calling toISOString
     },
     twitter: {
       card: 'summary_large_image',

@@ -3,6 +3,9 @@ import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import siteConfig from '../../../../data/config'; // Assuming site config exists for metadata (using default import)
 import { routing } from '../../../../src/i18n/routing'; // Import routing config
+import { MarketingLayout } from '../../../../components/layout/marketing-layout'; // Import the MarketingLayout
+import { Container } from '@chakra-ui/react'; // Import Chakra UI Container
+import MdxRenderer from '../../../../components/mdx-renderer'; // Import the new client component
 
 // Define the structure of the params object
 interface PostPageProps {
@@ -57,7 +60,7 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
   };
 }
 
-// The main page component
+// The main page component - no longer needs to be async
 export default function PostPage({ params }: PostPageProps) {
   // Find the post based on the slug from the URL params
   const post = posts.find((post) => post.slug === params.slug);
@@ -67,23 +70,27 @@ export default function PostPage({ params }: PostPageProps) {
     notFound();
   }
 
-  // Render the post content
+  // Render the post content using the client component
   // NOTE: This currently only renders title and date.
   // We need a component to render the actual MDX content.
   // Let's add a placeholder for now.
   return (
-    <article className="prose dark:prose-invert mx-auto py-8">
-      <h1>{post.title}</h1>
-      <p className="text-muted-foreground">
+    <MarketingLayout> {/* Wrap content with MarketingLayout */}
+      <Container maxW="container.md" py="8"> {/* Add Container for layout */}
+        <article className="prose dark:prose-invert"> {/* Remove mx-auto */}
+          <h1>{post.title}</h1>
+          <p className="text-muted-foreground">
         Published on: {new Date(post.date).toLocaleDateString(params.locale, {
           year: 'numeric',
           month: 'long',
           day: 'numeric',
-        })}
-      </p>
-      <hr className="my-4" />
-      {/* Render the MDX content */}
-      {post.content}
-    </article>
+          })}
+        </p>
+          <hr className="my-4" />
+          {/* Render the MDX content using the client component */}
+          <MdxRenderer content={post.content} />
+        </article>
+      </Container> {/* Close Container */}
+    </MarketingLayout> // Close MarketingLayout
   );
 }

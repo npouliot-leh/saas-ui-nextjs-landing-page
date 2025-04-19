@@ -153,11 +153,7 @@ const HeroSection: React.FC = () => {
 }
 
 
-// Note: Metadata might need adjustments for i18n later
-export const meta: Metadata = {
-  title: 'Sublogik', // Use generic title, can be localized in metadata later
-  description: 'Business Consulting and Software Solutions', // Use generic description
-}
+// Removed invalid 'meta' export. Metadata should be handled by generateMetadata if needed.
 
 // Update component signature to accept params
 const Home: NextPage<{ params: { locale: string } }> = ({ params: { locale } }) => {

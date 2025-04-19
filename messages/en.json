@@ -16,7 +16,28 @@
   },
   "ServicesSection": {
     "title": "Our Services",
-    "placeholder": "Placeholder text for Services section. Details about business consulting, software solutions, API integrations, etc., will go here."
+    "services": {
+      "optimization": {
+        "title": "Business Process Optimization",
+        "description": "We map your company's processes, identify bottlenecks and inefficiencies, and implement proven corrective actions to streamline operations and enhance productivity."
+      },
+      "integration": {
+        "title": "Software Integration & Automation",
+        "description": "Connect your disparate tools and platforms. We eliminate data silos and automate workflows, saving valuable time previously lost to manual data entry."
+      },
+      "hrSolution": {
+        "title": "Construction HR & Timesheet Solution",
+        "description": "Coming soon: A specialized HR, timesheet, and time punch platform designed specifically for the construction industry, offered via a flexible subscription model."
+      },
+      "ocr": {
+        "title": "Custom AI-Powered OCR",
+        "description": "Leverage our custom Optical Character Recognition solutions, enhanced with AI, to extract data accurately and integrate seamlessly with your existing systems."
+      },
+      "affiliate": {
+        "title": "Affiliate Partner Programs",
+        "description": "We partner with leading service providers (like Microsoft and Google) to offer complementary solutions, generating recurring revenue through referrals."
+      }
+    }
   },
   "UseCasesSection": {
     "title": "Use Cases",

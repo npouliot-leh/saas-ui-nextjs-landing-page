@@ -16,7 +16,28 @@
   },
   "ServicesSection": {
     "title": "Nos Services",
-    "placeholder": "Texte d'espace réservé pour la section Services. Les détails sur le conseil aux entreprises, les solutions logicielles, les intégrations d'API, etc., iront ici."
+    "services": {
+      "optimization": {
+        "title": "Optimisation des processus d'affaires",
+        "description": "Nous cartographions les processus de votre entreprise, identifions les goulots d'étranglement et les inefficacités, et mettons en œuvre des actions correctives éprouvées pour rationaliser les opérations et améliorer la productivité."
+      },
+      "integration": {
+        "title": "Intégration logicielle et automatisation",
+        "description": "Connectez vos outils et plateformes disparates. Nous éliminons les silos de données et automatisons les flux de travail, économisant un temps précieux auparavant perdu en saisie manuelle de données."
+      },
+      "hrSolution": {
+        "title": "Solution RH et feuilles de temps pour la construction",
+        "description": "Bientôt disponible : Une plateforme spécialisée RH, feuilles de temps et pointeuse conçue spécifiquement pour l'industrie de la construction, offerte via un modèle d'abonnement flexible."
+      },
+      "ocr": {
+        "title": "ROC personnalisée alimentée par l'IA",
+        "description": "Tirez parti de nos solutions personnalisées de reconnaissance optique de caractères, améliorées par l'IA, pour extraire des données avec précision et les intégrer de manière transparente à vos systèmes existants."
+      },
+      "affiliate": {
+        "title": "Programmes de partenaires affiliés",
+        "description": "Nous nous associons à des fournisseurs de services de premier plan (comme Microsoft et Google) pour offrir des solutions complémentaires, générant des revenus récurrents grâce aux références."
+      }
+    }
   },
   "UseCasesSection": {
     "title": "Cas d'utilisation",
